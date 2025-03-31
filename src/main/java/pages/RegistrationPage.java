@@ -7,7 +7,6 @@ import utils.Utils;
 public class RegistrationPage {
     private final Utils utils;
 
-    // 🔹 Define locators at the top for better readability & reusability
     private final By nameField = By.name("name");
     private final By surnameField = By.name("surname");
     private final By emailField = By.name("email");
@@ -19,12 +18,10 @@ public class RegistrationPage {
     private final By confirmPasswordField = By.name("confirmPassword");
     private final By submitButton = By.xpath("//button[@type='submit']");
 
-    // 🔹 Constructor
     public RegistrationPage(WebDriver driver) {
         this.utils = new Utils(driver);  // Pass the driver to utils
     }
 
-    // 🔹 Methods to interact with elements
     public void enterName(String name) {
         utils.waitAndSendKeys(nameField, name);
     }
@@ -65,7 +62,6 @@ public class RegistrationPage {
         utils.waitAndClick(submitButton);
     }
 
-    // 🔹 Combined method for full registration
     public void register(String name, String surname, String email, String address, String postalCode,
                          String city, String country, String password) {
         enterName(name);
