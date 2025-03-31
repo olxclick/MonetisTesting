@@ -8,7 +8,6 @@ import utils.Utils;
 import java.time.Duration;
 
 public class LoginPage {
-    private final WebDriverWait wait;
     private final Utils utils;
 
     private final By emailField = By.name("email");
@@ -16,7 +15,6 @@ public class LoginPage {
     private final By loginButton = By.xpath("//button[@type='submit']");
 
     public LoginPage(WebDriver driver) {
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         utils = new Utils(driver);
     }
 
@@ -37,4 +35,5 @@ public class LoginPage {
         enterPassword(password);
         clickLogin();
     }
+
 }

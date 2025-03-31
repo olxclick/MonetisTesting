@@ -13,7 +13,6 @@ public class RegistrationPage {
     private final By streetAddressField = By.name("street_address");
     private final By postalCodeField = By.name("postal_code");
     private final By cityField = By.name("city");
-    private final By countryDropdown = By.id("react-select-2-input");
     private final By passwordField = By.name("password");
     private final By confirmPasswordField = By.name("confirmPassword");
     private final By submitButton = By.xpath("//button[@type='submit']");

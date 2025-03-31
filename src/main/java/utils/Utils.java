@@ -6,53 +6,42 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 public class Utils {
     private final WebDriver driver;
-    private final WebDriverWait wait;
 
     public Utils(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    }
+
+    // Method to get a WebDriverWait instance with a custom timeout
+    public WebDriverWait getWait(int timeoutInSeconds) {
+        return new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
     }
 
     public void waitAndClick(By locator) {
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
-        element.click();
+        getWait(10).until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
 
     public void waitAndSendKeys(By locator, String text) {
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        WebElement element = getWait(10).until(ExpectedConditions.visibilityOfElementLocated(locator));
         element.clear();
         element.sendKeys(text);
     }
 
     public void selectDropdownOption(String dropdownInputId, String value) {
         waitAndClick(By.className("css-13cymwt-control"));
-
-        WebElement inputField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(dropdownInputId)));
+        WebElement inputField = getWait(10).until(ExpectedConditions.visibilityOfElementLocated(By.id(dropdownInputId)));
         inputField.sendKeys(value);
         inputField.sendKeys(Keys.ENTER);
     }
 
-    public void waitUrl(String url){
-        wait.until(ExpectedConditions.urlToBe(url));
-    }
-
-    public void removeTestData() {
-        waitForLoadingScreenToDisappear();
-        waitAndClick(By.xpath("//span[text()='Settings']"));
-        waitForLoadingScreenToDisappear();
-        waitAndClick(By.xpath("//span[text()='Delete account']"));
-        waitForLoadingScreenToDisappear();
-        waitAndSendKeys(By.name("confirmDeletePassword"), "SecurePWD#12");
-        waitAndClick(By.xpath("//button[@type='submit']"));
+    public void waitUrl(String url, int timeout) {
+        getWait(timeout).until(ExpectedConditions.urlToBe(url));
     }
 
     public void waitForLoadingScreenToDisappear() {
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("loading_screen")));
+        getWait(15).until(ExpectedConditions.invisibilityOfElementLocated(By.className("loading_screen")));
     }
-
 }
