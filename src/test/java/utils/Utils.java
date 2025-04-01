@@ -37,11 +37,11 @@ public class Utils {
         inputField.sendKeys(Keys.ENTER);
     }
 
-    public void waitUrl(String url, int timeout) {
-        getWait(timeout).until(ExpectedConditions.urlToBe(url));
-    }
-
     public void waitForLoadingScreenToDisappear() {
         getWait(15).until(ExpectedConditions.invisibilityOfElementLocated(By.className("loading_screen")));
+    }
+
+    public void waitForElementToBeVisible(By locator, int timeoutInSeconds) {
+        getWait(timeoutInSeconds).until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 }

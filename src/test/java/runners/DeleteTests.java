@@ -6,9 +6,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features="src/test/java/features/login.feature", glue = "stepDefinitions",
+        features="src/test/java/features/delete.feature", glue = "stepDefinitions",
         plugin = {"pretty", "html:target/cucumber-reports"}
 )
 
-public class LoginTR {
+public class DeleteTests {
 }

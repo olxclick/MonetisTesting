@@ -9,15 +9,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 import pages.RegistrationPage;
-import utils.Utils;
 
 import java.time.Duration;
 
-public class RegistrationTests {
+public class RegistrationSD {
     private WebDriver driver;
     private RegistrationPage registrationPage;
 

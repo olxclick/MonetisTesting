@@ -1,25 +1,19 @@
 package stepDefinitions.login;
 
 import io.cucumber.java.After;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 import pages.LoginPage;
-import utils.Utils;
 
 import java.time.Duration;
 
-public class LoginTests {
+public class LoginSD {
     private static WebDriver driver;
     private LoginPage loginPage;
 
