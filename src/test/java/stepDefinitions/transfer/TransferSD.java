@@ -38,6 +38,12 @@ public class TransferSD {
         transferPage.sendDetails();
     }
 
+    @And("I fill in the form with IBAN and click on next")
+    public void fillTransferFormIBAN(){
+        transferPage.transactionDetails("PT50206775744571441300547", 100);
+        transferPage.sendDetails();
+    }
+
     @Then("Verify success transfer page appears")
     public void validateTransfer(){
         By successLocator = By.xpath("//button[text()='Close']");

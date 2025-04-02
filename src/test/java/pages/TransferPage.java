@@ -27,8 +27,6 @@ public class TransferPage {
         balanceText = balanceText.replaceAll(",.*", "");
         balanceText = balanceText.replaceAll("[^0-9]", "");
 
-        System.out.println("Cleaned balance text: " + balanceText);
-
         return Integer.parseInt(balanceText);
     }
 
