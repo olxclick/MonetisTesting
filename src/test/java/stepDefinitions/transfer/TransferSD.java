@@ -40,7 +40,7 @@ public class TransferSD {
 
     @And("I fill in the form with IBAN and click on next")
     public void fillTransferFormIBAN(){
-        transferPage.transactionDetails("PT50206775744571441300547", 100);
+        transferPage.transactionDetails("PT50102402094572332789752", 100);
         transferPage.sendDetails();
     }
 
